@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "lxHl7AfVkaClYYfTltcFuJc43bvVP56ymr+UDXvM4YsBqP6hXG0l1xEbTwzNrjI2u4hiQftIQVUs/eoDpLkYFA==",
+  "dgSpecHash": "WSzvoYDbn8+R/+ZT8VJGNqt906PumH1Mmgdx45wd4XP2HMAmCSZ9yITwIqkCG2Mlo1Uh6eHvt/WArMnjI3kM3w==",
   "success": true,
   "projectFilePath": "C:\\Users\\us\\Documents\\C#\\MicroservicesForInventory\\ProductService\\ProductService.csproj",
   "expectedPackageFiles": [
@@ -25,6 +25,7 @@
     "C:\\Users\\us\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.12\\microsoft.extensions.primitives.3.1.12.nupkg.sha512",
     "C:\\Users\\us\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\us\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\us\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.19.5\\microsoft.visualstudio.azure.containers.tools.targets.1.19.5.nupkg.sha512",
     "C:\\Users\\us\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\us\\.nuget\\packages\\mongodb.bson\\2.23.1\\mongodb.bson.2.23.1.nupkg.sha512",
     "C:\\Users\\us\\.nuget\\packages\\mongodb.driver\\2.23.1\\mongodb.driver.2.23.1.nupkg.sha512",

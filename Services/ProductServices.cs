@@ -13,11 +13,14 @@ namespace ProductService.Services
         public ProductServices(
             IOptions<MongoDbConfig> mongoDbConfig)
         {
-            var mongoClient = new MongoClient(
-                mongoDbConfig.Value.ConnectionString);
+            var Db_Name = Environment.GetEnvironmentVariable("DB_NAME");
+            var Db_Host = Environment.GetEnvironmentVariable("DB_HOST");
+            var connectionStirng = $"mongodb://{Db_Host}:27017";
 
-            var mongoDatabase = mongoClient.GetDatabase(
-                mongoDbConfig.Value.DatabaseName);
+            var mongoClient = new MongoClient(connectionStirng);
+              
+
+            var mongoDatabase = mongoClient.GetDatabase(Db_Name);
 
             _productCollection = mongoDatabase.GetCollection<Product>(
                 mongoDbConfig.Value.CollectionName);

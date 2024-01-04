@@ -45,3 +45,4 @@ C:\Users\us\Documents\C#\MicroservicesForInventory\ProductService\obj\Debug\net8
 C:\Users\us\Documents\C#\MicroservicesForInventory\ProductService\obj\Debug\net8.0\ref\ProductService.dll
 C:\Users\us\Documents\C#\MicroservicesForInventory\ProductService\bin\Debug\net8.0\AspNetCore.Identity.MongoDbCore.dll
 C:\Users\us\Documents\C#\MicroservicesForInventory\ProductService\bin\Debug\net8.0\MongoDbGenericRepository.dll
+C:\Users\us\Documents\C#\MicroservicesForInventory\ProductService\obj\Debug\net8.0\ProductService.sourcelink.json
