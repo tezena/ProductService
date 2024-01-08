@@ -1,11 +1,23 @@
 {
   "Version": 1,
-  "Hash": "j0c9bMJ5jsqzhPF5VFHs62krbDGMkhcqON2bGvkb1pg=",
+  "Hash": "Png3LNC0TdJaYGiWJD1krcS0NGDZlyaaPHWS3sQOOhY=",
   "Source": "ProductService",
   "BasePath": "_content/ProductService",
   "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\us\\Documents\\C#\\MicroservicesForInventory\\AccountService\\AccountService.csproj",
+      "Version": 2,
+      "Source": "AccountService",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
   "DiscoveryPatterns": [],
   "Assets": []
 }

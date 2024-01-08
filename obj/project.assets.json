@@ -628,6 +628,24 @@
         "runtime": {
           "lib/net7.0/ZstdSharp.dll": {}
         }
+      },
+      "AccountService/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "AspNetCore.Identity.MongoDbCore": "3.1.2",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.19.5",
+          "Swashbuckle.AspNetCore": "6.4.0"
+        },
+        "compile": {
+          "bin/placeholder/AccountService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AccountService.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -1766,10 +1784,16 @@
         "zstdsharp.port.0.7.3.nupkg.sha512",
         "zstdsharp.port.nuspec"
       ]
+    },
+    "AccountService/1.0.0": {
+      "type": "project",
+      "path": "../AccountService/AccountService.csproj",
+      "msbuildProject": "../AccountService/AccountService.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "AccountService >= 1.0.0",
       "AspNetCore.Identity.MongoDbCore >= 3.1.2",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.19.5",
       "MongoDB.Driver >= 2.23.1",
@@ -1802,7 +1826,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\us\\Documents\\C#\\MicroservicesForInventory\\AccountService\\AccountService.csproj": {
+              "projectPath": "C:\\Users\\us\\Documents\\C#\\MicroservicesForInventory\\AccountService\\AccountService.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
