@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ProductService.Models;
 using ProductService.Models.ViewModels;
 using ProductService.Services;
+using System.Security.Claims;
 
 namespace ProductService.Controllers
 {
@@ -16,9 +18,18 @@ namespace ProductService.Controllers
             _productService = productService;
 
         [HttpGet]
-        [Route("products:{userId}")]
-        public async Task<List<Product>> GetProducts([FromRoute] string userId ) =>
-            await _productService.GetProductsAsync(userId);
+        [Authorize]
+        public async Task<ActionResult<List<Product>>> GetProducts()
+        {
+            var userId = GetCurrentUserId();
+            if (userId == null)
+            {
+                return Unauthorized();
+            }
+
+            return await _productService.GetProductsAsync(userId);
+
+        }
 
 
 
@@ -26,6 +37,12 @@ namespace ProductService.Controllers
         [Route("{id}")]
         public async Task<ActionResult<Product>> Get(string id)
         {
+            var userId = GetCurrentUserId();
+            if (userId == null)
+            {
+                return Unauthorized();
+            }
+
             var product = await _productService.GetProductByIdAsync(id);
 
             if (product is null)
@@ -40,7 +57,14 @@ namespace ProductService.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(ProductVM newProduct)
         {
-             var createdProduct = await _productService.CreateAsync(newProduct);
+
+            var userId = GetCurrentUserId();
+            if (userId == null)
+            {
+                return Unauthorized();
+            }
+
+            var createdProduct = await _productService.CreateAsync(newProduct,userId);
 
             return  CreatedAtAction("Get", new { id = createdProduct.Id }, createdProduct);
         }
@@ -50,6 +74,13 @@ namespace ProductService.Controllers
         [Route("{id}")]
         public async Task<IActionResult> Update([FromRoute] string id, ProductVM updateProduct)
         {
+
+            var userId = GetCurrentUserId();
+            if (userId == null)
+            {
+                return Unauthorized();
+            }
+
             var product = await _productService.GetProductByIdAsync(id);
 
             if (product is null)
@@ -69,6 +100,12 @@ namespace ProductService.Controllers
         [Route("{id}")]
         public async Task<IActionResult> Delete([FromRoute] string id)
         {
+            var userId = GetCurrentUserId();
+            if (userId == null)
+            {
+                return Unauthorized();
+            }
+
             var product = await _productService.GetProductByIdAsync(id);
 
             if (product is null)
@@ -79,6 +116,21 @@ namespace ProductService.Controllers
             await _productService.RemoveAsync(id);
 
             return NoContent();
+        }
+
+
+
+        private string GetCurrentUserId()
+        {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            if (identity != null)
+            {
+                var userClaims = identity.Claims;
+                return userClaims.FirstOrDefault(x => x.Type == ClaimTypes.DenyOnlyPrimarySid)?.Value;
+              
+            }
+            return null;
+
         }
 
     }

@@ -32,11 +32,11 @@ namespace ProductService.Services
         public async Task<Product?> GetProductByIdAsync(string id) =>
             await _productCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
 
-        public async Task<Product?> CreateAsync(ProductVM newProduct)
+        public async Task<Product?> CreateAsync(ProductVM newProduct,string userId)
         {
             var product = new Product
                       {
-                UserId = newProduct.UserId,
+                UserId = userId,
                 ProductName = newProduct.ProductName,
                 Pcode = newProduct.Pcode,
                 Category = newProduct.Category,

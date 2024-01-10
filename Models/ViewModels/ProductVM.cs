@@ -9,7 +9,7 @@ namespace ProductService.Models.ViewModels
    
 
         [BsonElement("UserId")]
-        public string UserId { get; set; }
+        public string? UserId { get; set; }
 
         [BsonElement("PCode")]
         public string Pcode { get; set; }
